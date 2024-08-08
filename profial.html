@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="icon" href="logo2.png" type="image/png">
+    <link rel="stylesheet" href="Access/style/profial.css">
+    <style>
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var audio = new Audio('Bartman.mp3');
+            audio.loop = true;
+            var isPlaying = false;
+
+            function toggleMusic() {
+                if (isPlaying) {
+                    audio.pause();
+                    isPlaying = false;
+                    document.getElementById('musicButton').innerText = 'Music ❌';
+                } else {
+                    audio.play();
+                    isPlaying = true;
+                    document.getElementById('musicButton').innerText = 'Music ✅';
+                }
+            }
+
+            document.getElementById('musicButton').addEventListener('click', toggleMusic);
+
+            var title = 'BRTMAN TEAM';
+            var titleIndex = 0;
+            var isDeleting = false;
+
+            function animateTitle() {
+                if (!isDeleting && titleIndex < title.length) {
+                    document.title += title[titleIndex];
+                    titleIndex++;
+                    setTimeout(animateTitle, 200);
+                } else if (isDeleting && titleIndex > 1) {
+                    document.title = title.substring(0, titleIndex - 1);
+                    titleIndex--;
+                    setTimeout(animateTitle, 200);
+                } else {
+                    isDeleting = !isDeleting;
+                    setTimeout(animateTitle, 1000);
+                }
+            }
+
+            animateTitle();
+        });
+
+        const createRain = () => {
+            const rainContainer = document.querySelector('.rain');
+            const numDrops = 100;
+
+            for (let i = 0; i < numDrops; i++) {
+                const drop = document.createElement('div');
+                drop.classList.add('rain-drop');
+                drop.style.left = `${Math.random() * 100}%`;
+                drop.style.animationDuration = `${Math.random() * 2 + 1}s`;
+                rainContainer.appendChild(drop);
+            }
+        };
+
+        createRain();
+    </script>
+</head>
+<body>
+    <div class="stormy-bg"></div>
+    <div class="rain"></div>
+
+    <div class="profile-container">
+        <div class="profile-logo">
+            <img src="images/c1cc844d90a2b62b38dbeb6e7c0218df.gif" alt="Logo">
+        </div>
+        <div class="profile-name">𝗕𝗥𝗧𝗠𝗔𝗡 𝗧𝗘𝗔𝗠</div>
+        <div class="profile-about">discord.gg/ahNQZhnCdc</div>
+        <div class="profile-footer">
+            <p>Termed: No</p>
+            <p>Current user: 𝗕𝗥𝗧𝗠𝗔𝗡 𝗧𝗘𝗔𝗠</p>
+        </div>
+        <button id="musicButton" class="music-button">Music ❌</button>
+        <a href="https://discord.gg/ahNQZhnCdc" target="_blank">
+            <button class="discord-button">Server Discord</button>
+        </a>
+    </div>
+</body>
+</html>

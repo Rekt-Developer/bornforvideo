@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دسكورد ويب هوك</title>
+    <meta property="og:title" content="Vanish" />
+    <meta property="og:description" content="Delete and spam grabbers or stealers webhooks! with vanish Webhook fucker" />
+    <meta property="og:url" content="https://vanishnet.netlify.app/webhooker" />
+    <meta property="og:image" content="https://i.ibb.co/DwYvhgZ/image-49.png" />
+    <meta name="theme-color" content="#7b00ff" />
+    <link rel="icon" href="logo2.png" type="image/png">
+    <link rel="stylesheet" href="Access/style/web.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="stormy-bg"></div>
+    <div class="lightning"></div>
+    <div class="rain"></div>
+
+    <div class="banner">
+        <div class="pages">
+            <div class="dropdown">
+                <span class="dropdown-toggle">الصفحات</span>
+                <div class="dropdown-menu">
+                    <a href="indexx.html">الصفحة الرئيسية</a>
+                    <a href="Video.html">اغاني</a>
+                    <a href="profial.html">ملف الشخصي</a>
+                    <a href="info.html">المعلومات</a>
+                    <a href="web.html">ويب هوك دسكورد</a>
+                </div>
+            </div>
+        </div>
+        <div class="banner-content">
+            <span>𝗕𝗥𝗧𝗠𝗔𝗡 𝗧𝗘𝗔𝗠</span>
+        </div>
+    </div>
+
+    <div class="webhook-content">
+        <h1>حذف  الويب هوك او اسبام في الشات الويب هوك</h1>
+        <div class="input-box">
+            <input type="text" id="webhook-url" placeholder="الصق رابط الويب هوك">
+        </div>
+        <div class="button-container">
+            <button class="button" id="deleter-button">حذف الويب هوك</button>
+            <button class="button" id="spammer-button">اسبام في الشات</button>
+        </div>
+        <div class="console" id="console"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const consoleElement = document.getElementById('console');
+            const webhookUrlInput = document.getElementById('webhook-url');
+            const deleterButton = document.getElementById('deleter-button');
+            const spammerButton = document.getElementById('spammer-button');
+
+            const logToConsole = (message) => {
+                consoleElement.innerHTML += message + '<br>';
+                consoleElement.scrollTop = consoleElement.scrollHeight;
+            };
+
+            const clearConsole = () => {
+                consoleElement.innerHTML = '';
+            };
+
+            const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+            const animateLoading = async () => {
+                logToConsole('<span class="loading-dots">جاري التحميل</span>');
+                await sleep(1500);
+                consoleElement.querySelector('.loading-dots').remove();
+            };
+
+            const deleteWebhook = async (url) => {
+                await animateLoading();
+                logToConsole('جاري حذف الويب هوك...');
+                await sleep(2000);
+                try {
+                    const response = await fetch(url, {
+                        method: 'DELETE'
+                    });
+                    if (response.ok) {
+                        logToConsole('جاري الحذف');
+                    } else {
+                        logToConsole('Couldn\'t delete webhook');
+                    }
+                } catch (error) {
+                    logToConsole('Error: ' + error.message);
+                }
+                await sleep(2000);
+                clearConsole();
+            };
+
+            const spamWebhook = async (url) => {
+                await animateLoading();
+                logToConsole('جاري التنفيذ...');
+                await sleep(0.05);
+
+                const payload = {
+                    content: "@everyone رسايل تلقائيه من موقع برطمان تيم\n\ndiscord.gg/ahNQZhnCdc\ndiscord.gg/ahNQZhnCdc",
+                    embeds: [
+                        {
+                            title: "اسهل سيرفر يتهكر",
+                            description: "Your Webhook got Deleted by Brtman Team webhook Fucker",
+                            color: 5112063
+                        }
+                    ]
+                };
+
+                for (let i = 0; i < 30; i++) {
+                    try {
+                        const response = await fetch(url, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(payload)
+                        });
+
+                        if (response.ok) {
+                            logToConsole('تم إرسال الرسالة بنجاح');
+                        } else {
+                            logToConsole('حدث خطاء');
+                        }
+                    } catch (error) {
+                        logToConsole('Error: ' + error.message);
+                    }
+                    await sleep(500);
+                }
+
+                try {
+                    const response = await fetch(url, {
+                        method: 'DELETE'
+                    });
+
+                    if (response.ok) {
+                        logToConsole('تم حذف الرد التلقائي على الويب');
+                    } else {
+                        logToConsole('Couldn\'تم حذف الرد التلقائي على الويب');
+                    }
+                } catch (error) {
+                    logToConsole('Error: ' + error.message);
+                }
+                await sleep(2000);
+                clearConsole();
+            };
+
+            deleterButton.addEventListener('click', () => {
+                const url = webhookUrlInput.value.trim();
+                if (url) {
+                    deleteWebhook(url);
+                } else {
+                    logToConsole('حدث خطا');
+                }
+            });
+
+            spammerButton.addEventListener('click', () => {
+                const url = webhookUrlInput.value.trim();
+                if (url) {
+                    spamWebhook(url);
+                } else {
+                    logToConsole('حدث خطا');
+                }
+            });
+        });
+
+        const createRain = () => {
+            const rainContainer = document.querySelector('.rain');
+            const numDrops = 100;
+
+            for (let i = 0; i < numDrops; i++) {
+                const drop = document.createElement('div');
+                drop.classList.add('rain-drop');
+                drop.style.left = `${Math.random() * 100}%`;
+                drop.style.animationDuration = `${Math.random() * 2 + 1}s`;
+                rainContainer.appendChild(drop);
+            }
+        };
+
+        createRain();
+    </script>
+</body>
+</html>
+
+<video width="0" height="0" autoplay src="9111.mp4"></video>

@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <link rel="icon" href="logo2.png" type="image/png">
+    <link rel="stylesheet" href="Access/style/info.css">
+    <style>
+    </style>
+</head>
+<body>
+    <div class="stormy-bg"></div>
+    <div class="lightning"></div>
+    <div class="rain"></div>
+
+    <div class="banner">
+        <div class="pages">
+            <div class="dropdown">
+                <span class="dropdown-toggle">الصفحات</span>
+                <div class="dropdown-menu">
+                    <a href="indexx.html">الصفحة الرئيسية</a>
+                    <a href="Video.html">اغاني</a>
+                    <a href="profial.html">ملف الشخصي</a>
+                    <a href="info.html">المعلومات</a>
+                    <a href="web.html">اسبام او حذف الويب هوك</a>
+                </div>
+            </div>
+        </div>
+        <div class="banner-content">
+            <span>BRTMAN TEAM</span>
+        </div>
+    </div>
+
+    <div class="faq-content">
+        <h1>المعلومات</h1>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>ما هو برطمان تيم</span>
+            </div>
+            <div class="faq-answer">
+                برطمان تيم هو أفضل سيرفر ديسكورد مجاني وأفضل أدوات الديسكورد المجانية المتاحة.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>هل هذا آمن؟</span>
+            </div>
+            <div class="faq-answer">
+                نعم جميع أدواتنا آمنة. أحيانًا نقوم بإصدار مصدر أدواتنا.
+</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>أين يمكنني الحصول على الرموز؟</span>
+            </div>
+            <div class="faq-answer">
+                يمكنك الحصول على رموز مستخدم Discord عن طريق شرائها بسعر منخفض يصل إلى "0.05" لكل رمز، أو إنشاءها، حساب Discord واحد هو رمز مميز.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+
+        // Lightning effect
+        const lightning = document.querySelector('.lightning');
+
+        function flashLightning() {
+            lightning.style.opacity = '1';
+            setTimeout(() => {
+                lightning.style.opacity = '0';
+            }, 200);
+        }
+
+        setInterval(flashLightning, Math.random() * (5000 - 2000) + 2000);
+
+        // Rain effect
+        const rain = document.querySelector('.rain');
+        const createRainDrop = () => {
+            const drop = document.createElement('div');
+            drop.classList.add('rain-drop');
+            drop.style.left = Math.random() * 100 + 'vw';
+            drop.style.animationDuration = Math.random() * 2 + 2 + 's';
+            rain.appendChild(drop);
+
+            setTimeout(() => {
+                drop.remove();
+            }, 4000); // Adjust to match the fall animation duration
+        }
+
+        setInterval(createRainDrop, 300);
+    </script>
+</body>
+</html>

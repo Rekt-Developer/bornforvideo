@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Vanish" />
+    <meta property="og:description" content="The best discord tools for free." />
+    <meta property="og:url" content="404.html" />
+    <meta property="og:image" content="https://i.ibb.co/DwYvhgZ/image-49.png" />
+    <meta name="theme-color" content="#7b00ff" />
+    <title>Home</title>
+    <link rel="icon" href="logo2.png" type="image/png">
+    <link rel="stylesheet" href="Access/style/Indexx.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="stormy-bg"></div>
+    <div class="lightning"></div>
+    <div class="rain"></div>
+
+    <div class="banner">
+        <div class="pages">
+            <div class="dropdown">
+                <span class="dropdown-toggle">الصفحات</span>
+                <div class="dropdown-menu">
+                    <a href="indexx.html">تحيث الصفحه</a>
+                    <a href="Video.html">اغاني</a>
+                    <a href="profial.html">ملف الشخصي</a>
+                    <a href="info.html">المعلومات</a>
+                    <a href="web.html">اسبام او حذف الويب هوك</a>
+                    <a href="Porn.html">مقاطع اباحيه</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="banner-content">
+            <span>𝗕𝗥𝗧𝗠𝗔𝗡 𝗧𝗘𝗔𝗠</span>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="main-content-text">
+            <h1>كل شي جديد في سيرفرنا دسكورد</h1>
+            <p>Join our server now or download from this website. Scroll down to find our tool downloads.</p>
+            <div class="source-code-button-wrapper">
+                <a href="https://discord.gg/ahNQZhnCdc" target="_blank">
+                    <div class="source-code-button">دخول السيرفر دسكورد</div>
+                </a>
+            </div>
+        </div>
+        <img src="images/c1cc844d90a2b62b38dbeb6e7c0218df.gif" alt="𝗕𝗥𝗧𝗠𝗔𝗡 Logo">   
+    </div>
+
+    <div class="container fade-in">
+        <!-- New text section -->
+        <div class="tools-header">
+            <h2>تحميل منتجات برطمان تيم</h2>
+        </div>
+        <div class="box-wrapper">
+            <div class="box">
+                <div class="box-content">مشاهده فيديوهات تويتش بدون سبسكرايب</div>
+                <a href="https://cdn.discordapp.com/attachments/1134821250783510578/1270570761664467007/BRTMAN_TEAM.rar?ex=66b42ebb&is=66b2dd3b&hm=f3a79ceff3a9fc4c6013e9d2918c3997ba70d6b5ae4832fd35becea252ae34e7&" class="download-button-wrapper" target="_blank">
+                    <div class="download-button">Download</div>
+                </a>
+                
+            </div>
+            <div class="box">
+                <div class="box-content">بوت تهكير سيرفر</div>
+                <a href="404.HTML" class="download-button-wrapper" target="_blank">
+                    <div class="download-button">قريبا</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="social-media">
+
+
+
+
+
+
+
+
+        
+        </a>
+    </div>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        const lightning = document.querySelector('.lightning');
+        
+        function flashLightning() {
+            lightning.style.animation = 'lightning 0.5s linear';
+            setTimeout(() => {
+                lightning.style.animation = '';
+            }, 500);
+        }
+
+        setInterval(flashLightning, Math.random() * (5000 - 2000) + 2000);
+
+        const rain = document.querySelector('.rain');
+        const createRainDrop = () => {
+            const drop = document.createElement('div');
+            drop.classList.add('rain-drop');
+            drop.style.left = Math.random() * 100 + 'vw';
+            drop.style.animationDuration = Math.random() * 2 + 2 + 's';
+            rain.appendChild(drop);
+
+            setTimeout(() => {
+                drop.remove();
+            }, 4000); 
+        }
+
+        setInterval(createRainDrop, 100);
+    </script>
+</body>
+</html>
